@@ -1,13 +1,19 @@
 // Buy Now functionality
 function buyNow(patternId) {
-    if (!authManager.currentUser) {
-        authManager.showLogin();
+    if (!window.authManager || !authManager.currentUser) {
+        if (window.authManager) {
+            authManager.showLogin();
+        }
         return;
     }
     
-    const pattern = getAllPatterns().find(p => p.id === patternId);
+    const pattern = (typeof getAllPatterns === 'function' ? getAllPatterns() : []).find(p => p.id === patternId) || 
+                   (window.adminManager ? adminManager.getAllPatternsForDisplay() : []).find(p => p.id === patternId);
+    
     if (!pattern) return;
     
-    cartManager.addItem(pattern);
-    cartManager.proceedToCheckout();
+    if (window.cartManager) {
+        cartManager.addItem(pattern);
+        cartManager.proceedToCheckout();
+    }
 }

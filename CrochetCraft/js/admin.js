@@ -206,10 +206,21 @@ class AdminManager {
             }
         }
         
-        // Refresh main patterns display if function exists
-        if (typeof refreshPatterns === 'function') {
-            refreshPatterns();
-        }
+        // Force refresh home page patterns
+        setTimeout(() => {
+            if (typeof updateHomePatterns === 'function') {
+                updateHomePatterns();
+            }
+            if (typeof refreshPatterns === 'function') {
+                refreshPatterns();
+            }
+            // Force reload patterns grid
+            const homeGrid = document.querySelector('.patterns-grid');
+            if (homeGrid) {
+                const allPatterns = this.getAllPatternsForDisplay();
+                homeGrid.innerHTML = allPatterns.slice(0, 6).map((pattern, index) => this.createPatternItemForHome(pattern, index)).join('');
+            }
+        }, 100);
     }
 
     renderProductsList() {
@@ -334,6 +345,48 @@ class AdminManager {
     // Get products for public display
     getPublicProducts() {
         return this.products;
+    }
+    
+    // Get all patterns for display (sample + admin)
+    getAllPatternsForDisplay() {
+        const samplePatterns = [
+            {id: 1, title: "Cozy Winter Blanket", category: "blankets", difficulty: "intermediate", price: 12.99, rating: 5, reviews: 124, description: "A beautiful textured blanket perfect for cold winter nights."},
+            {id: 2, title: "Cute Amigurumi Bear", category: "amigurumi", difficulty: "beginner", price: 8.99, rating: 4, reviews: 89, description: "An adorable teddy bear that's perfect for beginners."},
+            {id: 3, title: "Elegant Lace Shawl", category: "accessories", difficulty: "advanced", price: 15.99, rating: 5, reviews: 156, description: "A sophisticated lace shawl for special occasions."}
+        ];
+        return [...samplePatterns, ...this.products];
+    }
+    
+    // Create pattern item for home page
+    createPatternItemForHome(pattern, index) {
+        const gradients = [
+            'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+            'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+        ];
+        return `
+            <div class="pattern-item">
+                <div class="pattern-image" style="background: ${gradients[index % 3]}">
+                    <div class="pattern-overlay">
+                        <button class="btn-pattern" onclick="quickView(${pattern.id})">Quick View</button>
+                        <button class="btn-pattern" onclick="addToCart(${pattern.id})">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pattern-info">
+                    <h3>${pattern.title}</h3>
+                    <p class="pattern-difficulty">${pattern.difficulty}</p>
+                    <div class="pattern-rating">
+                        ${'<i class="fas fa-star"></i>'.repeat(pattern.rating)}
+                        <span>(${pattern.reviews || 0})</span>
+                    </div>
+                    <div class="pattern-price">$${pattern.price}</div>
+                    <button class="btn-buy-now btn-primary" onclick="buyNow(${pattern.id})">
+                        <i class="fas fa-bolt"></i>
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        `;
     }
 }
 

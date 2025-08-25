@@ -31,8 +31,7 @@ class CartManager {
 
     addItem(product) {
         // Check if user is logged in
-        const currentUser = localStorage.getItem('currentUser');
-        if (!currentUser) {
+        if (!authManager || !authManager.currentUser) {
             this.showNotification('Please login to add items to cart', 'error');
             if (window.authManager) {
                 authManager.showLogin();
@@ -167,8 +166,7 @@ class CartManager {
     }
 
     openCart() {
-        const currentUser = localStorage.getItem('currentUser');
-        if (!currentUser) {
+        if (!authManager || !authManager.currentUser) {
             this.showNotification('Please login to view your cart', 'error');
             if (window.authManager) {
                 authManager.showLogin();
@@ -258,7 +256,7 @@ class CartManager {
             return;
         }
         
-        if (!window.authManager || !authManager.currentUser) {
+        if (!authManager || !authManager.currentUser) {
             this.showNotification('Please login to checkout', 'error');
             if (window.authManager) {
                 authManager.showLogin();
@@ -266,7 +264,8 @@ class CartManager {
             return;
         }
         
-        document.getElementById('cartModal').remove();
+        const cartModal = document.getElementById('cartModal');
+        if (cartModal) cartModal.remove();
         this.createCheckoutModal();
     }
 
