@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrochetCraft - Premium Crochet Patterns</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIi8+CjxwYXRoIGQ9Ik0xNiA4QzEyIDggOSAxMSA5IDE1QzkgMTkgMTIgMjIgMTYgMjJDMjAgMjIgMjMgMTkgMjMgMTVDMjMgMTEgMjAgOCAxNiA4WiIgZmlsbD0id2hpdGUiLz4KPHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggNEw2IDZMOCA4TDEwIDZMOCA0WiIgZmlsbD0iI0ZGNkI5RCIvPgo8L3N2Zz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQwX2xpbmVhcl8xXzEiIHgxPSIwIiB5MT0iMCIgeDI9IjMyIiB5Mj0iMzIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iI0ZGNkI5RCIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0RUNEQUM0Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/enhanced.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>CrochetCraft</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#patterns" class="nav-link">Patterns</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="nav-search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="#cart" class="nav-link cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            
+            <div class="nav-auth" style="z-index: 99999; position: relative;">
+                <button class="btn-secondary" onclick="if(window.authManager) authManager.showLogin();" style="z-index: 99999; position: relative; pointer-events: auto;">Login</button>
+                <button class="btn-primary" onclick="if(window.authManager) authManager.showSignup();" style="z-index: 99999; position: relative; pointer-events: auto;">Sign Up</button>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Beautiful Crochet</span>
+                    <span class="title-line">Patterns for Every</span>
+                    <span class="title-line highlight">Creative Soul</span>
+                </h1>
+                <p class="hero-description">
+                    Discover thousands of premium crochet patterns designed by expert crafters. 
+                    From beginner-friendly projects to advanced masterpieces.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn-hero-primary" onclick="scrollToSection('patterns')">
+                        <span>Shop Patterns</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn-hero-secondary" onclick="openTutorial()">
+                        <i class="fas fa-play"></i>
+                        <span>Watch Tutorial</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="image-container">
+                    <div class="pattern-card card-1">
+                        <div class="card-content">
+                            <i class="fas fa-heart"></i>
+                            <span>Amigurumi</span>
+                        </div>
+                    </div>
+                    <div class="pattern-card card-2">
+                        <div class="card-content">
+                            <i class="fas fa-star"></i>
+                            <span>Blankets</span>
+                        </div>
+                    </div>
+                    <div class="pattern-card card-3">
+                        <div class="card-content">
+                            <i class="fas fa-gem"></i>
+                            <span>Accessories</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Patterns -->
+    <section id="patterns" class="patterns-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Patterns</h2>
+                <p class="section-subtitle">Handpicked designs that inspire creativity</p>
+            </div>
+            
+            <div class="patterns-grid">
+                <div class="pattern-item">
+                    <div class="pattern-image">
+                        <div class="pattern-overlay">
+                            <button class="btn-pattern">Quick View</button>
+                            <button class="btn-pattern">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="pattern-info">
+                        <h3>Cozy Winter Blanket</h3>
+                        <p class="pattern-difficulty">Intermediate</p>
+                        <div class="pattern-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(124)</span>
+                        </div>
+                        <div class="pattern-price">$12.99</div>
+                        <button class="btn-buy-now btn-primary">
+                            <i class="fas fa-bolt"></i>
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pattern-item">
+                    <div class="pattern-image">
+                        <div class="pattern-overlay">
+                            <button class="btn-pattern">Quick View</button>
+                            <button class="btn-pattern">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="pattern-info">
+                        <h3>Cute Amigurumi Bear</h3>
+                        <p class="pattern-difficulty">Beginner</p>
+                        <div class="pattern-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(89)</span>
+                        </div>
+                        <div class="pattern-price">$8.99</div>
+                        <button class="btn-buy-now btn-primary">
+                            <i class="fas fa-bolt"></i>
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pattern-item">
+                    <div class="pattern-image">
+                        <div class="pattern-overlay">
+                            <button class="btn-pattern">Quick View</button>
+                            <button class="btn-pattern">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="pattern-info">
+                        <h3>Elegant Lace Shawl</h3>
+                        <p class="pattern-difficulty">Advanced</p>
+                        <div class="pattern-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(156)</span>
+                        </div>
+                        <div class="pattern-price">$15.99</div>
+                        <button class="btn-buy-now btn-primary">
+                            <i class="fas fa-bolt"></i>
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About CrochetCraft</h2>
+                    <p>We're passionate crafters dedicated to bringing you the most beautiful and innovative crochet patterns. Our community of designers creates patterns that inspire creativity and bring joy to your crafting journey.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Patterns</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50K+</div>
+                            <div class="stat-label">Happy Crafters</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Designers</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">We'd love to hear from you</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>hello@crochetcraft.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Craft Street, Creative City, CC 12345</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heart"></i>
+                        <span>CrochetCraft</span>
+                    </div>
+                    <p>Creating beautiful crochet patterns for crafters worldwide.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://pinterest.com" target="_blank"><i class="fab fa-pinterest"></i></a>
+                        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
+                        <li><a href="patterns.html">Patterns</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="patterns.html?category=amigurumi">Amigurumi</a></li>
+                        <li><a href="patterns.html?category=blankets">Blankets</a></li>
+                        <li><a href="patterns.html?category=accessories">Accessories</a></li>
+                        <li><a href="patterns.html?category=home-decor">Home Decor</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html#faq">Help Center</a></li>
+                        <li><a href="javascript:void(0)" onclick="showPolicy('privacy')">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0)" onclick="showPolicy('terms')">Terms of Service</a></li>
+                        <li><a href="javascript:void(0)" onclick="showPolicy('refund')">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 CrochetCraft. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Welcome Back</h2>
+                <span class="close" id="closeLogin">&times;</span>
+            </div>
+            <form class="auth-form">
+                <div class="form-group">
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn-primary">Sign In</button>
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+                <button type="button" class="btn-social">
+                    <i class="fab fa-google"></i>
+                    Continue with Google
+                </button>
+                <p class="auth-switch">
+                    Don't have an account? <a href="#" id="switchToSignup">Sign up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Account</h2>
+                <span class="close" id="closeSignup">&times;</span>
+            </div>
+            <form class="auth-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Confirm Password" required>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                        I agree to the <a href="#">Terms & Conditions</a>
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary">Create Account</button>
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+                <button type="button" class="btn-social">
+                    <i class="fab fa-google"></i>
+                    Continue with Google
+                </button>
+                <p class="auth-switch">
+                    Already have an account? <a href="#" id="switchToLogin">Sign in</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showLoginModal() {
+            if (window.authManager) {
+                authManager.showLogin();
+            } else {
+                setTimeout(() => {
+                    if (window.authManager) authManager.showLogin();
+                }, 100);
+            }
+        }
+        
+        function showSignupModal() {
+            if (window.authManager) {
+                authManager.showSignup();
+            } else {
+                setTimeout(() => {
+                    if (window.authManager) authManager.showSignup();
+                }, 100);
+            }
+        }
+    </script>
+    <script src="js/validation.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/admin-ui.js"></script>
+    <script src="js/purchase.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/buttons.js"></script>
+    <script src="js/auth-gate.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/init.js"></script>
+</body>
+</html>
