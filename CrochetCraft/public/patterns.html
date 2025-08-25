@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patterns - CrochetCraft</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>CrochetCraft</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="patterns.html" class="nav-link active">Patterns</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="#cart" class="nav-link cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            
+            <div class="nav-auth">
+                <button class="btn-secondary" id="loginBtn">Login</button>
+                <button class="btn-primary" id="signupBtn">Sign Up</button>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Crochet Patterns</h1>
+            <p class="page-subtitle">Discover our complete collection of beautiful crochet patterns</p>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label>Category</label>
+                    <select class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="amigurumi">Amigurumi</option>
+                        <option value="blankets">Blankets</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="home-decor">Home Decor</option>
+                        <option value="clothing">Clothing</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Difficulty</label>
+                    <select class="filter-select">
+                        <option value="">All Levels</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Price Range</label>
+                    <select class="filter-select">
+                        <option value="">All Prices</option>
+                        <option value="0-10">$0 - $10</option>
+                        <option value="10-20">$10 - $20</option>
+                        <option value="20+">$20+</option>
+                    </select>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" placeholder="Search patterns..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patterns Grid -->
+    <section class="patterns-showcase">
+        <div class="container">
+            <div class="patterns-grid-extended">
+                <!-- Pattern items will be populated here -->
+            </div>
+            
+            <div class="load-more-container">
+                <button class="btn-primary load-more-btn">Load More Patterns</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heart"></i>
+                        <span>CrochetCraft</span>
+                    </div>
+                    <p>Creating beautiful crochet patterns for crafters worldwide.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="patterns.html">Patterns</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Amigurumi</a></li>
+                        <li><a href="#">Blankets</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">Home Decor</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 CrochetCraft. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/session.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/patterns.js"></script>
+</body>
+</html>
